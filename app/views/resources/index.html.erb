@@ -1,0 +1,7 @@
+<h1><%= pluralize(@resources.size, 'Resource') %></h1>
+
+<ul>
+  <% @resources.each do |resource| %>
+    <li><%= resource %></li>
+  <% end %>
+</ul>
