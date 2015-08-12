@@ -1,5 +1,5 @@
 <h1><%= @resource.name %></h1>
 
-<h3>Rating: <%= @resource.rating %></h3>
+<h3>Rating: <%= format_rating(@resource) %></h3>
 
 <%= link_to "All Resources", resources_path %>
