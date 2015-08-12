@@ -2,7 +2,7 @@
 
 <ul>
   <% @resources.each do |resource| %>
-    <li><%= link_to resource.name, "" %></li>
+    <li><%= link_to resource.name, resource_path(resource) %></li>
     <span><%= resource.rating %></span>
   <% end %>
 </ul>
