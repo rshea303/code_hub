@@ -1,8 +1,18 @@
 <h1><%= pluralize(@resources.size, 'Resource') %></h1>
 
-<ul>
+<table class="table resources">
+  <thead>
+    <tr> 
+      <th>Resource</th>
+      <th>Rating</th>
+    </tr>
+  </thead>
+  <tbody>
   <% @resources.each do |resource| %>
-    <li><%= link_to resource.name, resource_path(resource) %></li>
-    <span><%= resource.rating %></span>
-  <% end %>
-</ul>
+    <tr>
+      <td><%= link_to resource.name, resource_path(resource) %></td>
+      <td><%= resource.rating %>
+    </tr>
+  </tbody>
+<% end %>
+</table>
