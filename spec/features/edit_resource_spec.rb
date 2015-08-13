@@ -28,7 +28,6 @@ describe "Edit a resource" do
   it "can edit the rating of a resource" do
     fill_in "resource[rating]", with: 0
     click_on("Update")
-    save_and_open_page
 
     expect(page).to have_text("Poor")
   end

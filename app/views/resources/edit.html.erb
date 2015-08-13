@@ -1,3 +1,4 @@
+<h1>Editing Resource: <%= @resource.name %></h1>
 <%= form_for @resource do |f| %>
   <p>
     <%= f.label :name %>
@@ -10,6 +11,6 @@
     <%= f.label :rating %>
     <%= f.number_field :rating %>
   <p>
-    <%= f.submit "Update" %>
+  <%= f.submit "Update" %> <span><%= link_to "Cancel", resource_path(@resource) %></span>
   </p>
 <% end %>
