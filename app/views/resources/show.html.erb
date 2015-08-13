@@ -1,6 +1,11 @@
 <h1><%= @resource.name %></h1><%= link_to "Edit", edit_resource_path(@resource) %> | 
                               <%= link_to "Delete", resource_path(@resource), method: :delete %>
 
+<h3>Description</h3>
+<p>
+  <%= @resource.description %>
+</p>
+
 <h3>Rating: <%= format_rating(@resource) %></h3>
 
 <%= link_to "All Resources", resources_path %>

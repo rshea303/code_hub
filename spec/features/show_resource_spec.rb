@@ -8,6 +8,7 @@ describe "Viewing an individual resource" do
 
     expect(page).to have_text(resource.name)
     expect(page).to have_text(resource.rating)
+    expect(page).to have_text(resource.description)
   end
 
   it "shows rating if value is greater than or equal to 3" do

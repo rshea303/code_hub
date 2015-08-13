@@ -9,6 +9,7 @@ describe "Creating a resource" do
     expect(current_path).to eq(new_resource_path)
 
     fill_in "resource[name]", with: "New Resource"
+    fill_in "resource[description]", with: "A great resource to learn ruby and rails.  It includes videos and guided tutorials"
     fill_in "resource[link]", with: "http://newresource.com"
     fill_in "resource[rating]", with: 5
     click_on("Create")
