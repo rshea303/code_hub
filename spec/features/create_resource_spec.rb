@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe "A new resource" do
-  it "can be created" do
+describe "Creating a resource" do
+  it "creates a new resource in the database" do
     visit root_url
 
     click_on("Add New Resource")
