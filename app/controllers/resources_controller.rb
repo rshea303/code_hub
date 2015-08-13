@@ -1,6 +1,6 @@
 class ResourcesController < ApplicationController
   def index
-    @resources = Resource.all
+    @resources = Resource.popular
   end
 
   def show
