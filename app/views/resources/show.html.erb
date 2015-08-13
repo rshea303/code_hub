@@ -1,4 +1,4 @@
-<h1><%= @resource.name %></h1>
+<h1><%= @resource.name %></h1><%= link_to "Edit", edit_resource_path(@resource) %>
 
 <h3>Rating: <%= format_rating(@resource) %></h3>
 
