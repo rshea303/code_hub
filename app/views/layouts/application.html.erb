@@ -8,8 +8,14 @@
 </head>
 <body>
 
-<div class="container">
+<%= render 'shared/header' %>
+
+<div class="col-xs-9">
   <%= yield %>
+</div>
+
+<div class="col-xs-3">
+  <%= render 'shared/aside' %>
 </div>
 
 </body>
