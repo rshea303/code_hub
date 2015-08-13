@@ -18,6 +18,19 @@ class ResourcesController < ApplicationController
     redirect_to resource_path(@resource)
   end
 
+  def new
+    @resource = Resource.new
+  end
+
+  def create
+    @resource = Resource.new(resource_params)
+    if @resource.save
+      redirect_to resource_path(@resource)
+    else
+      render :new
+    end
+  end
+
   private
 
   def resource_params

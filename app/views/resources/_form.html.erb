@@ -1,0 +1,19 @@
+<%= form_for @resource do |f| %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :link %>
+    <%= f.text_field :link %>
+  </p>
+    <%= f.label :rating %>
+    <%= f.number_field :rating %>
+  <p>
+    <% if @resource.new_record? %>
+      <%= f.submit "Create" %> <span><%= link_to "Cancel", resources_path %></span>
+    <% else %>
+      <%= f.submit "Update" %> <span><%= link_to "Cancel", resource_path(@resource) %></span>
+    <% end %>
+  </p>
+<% end %>
