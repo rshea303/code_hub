@@ -16,5 +16,6 @@ describe "Creating a resource" do
 
     expect(page).to have_text("New Resource")
     expect(page).to have_text("5")
+    expect(page).to have_text("Resource successfully created!")
   end
 end

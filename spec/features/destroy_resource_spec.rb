@@ -9,5 +9,6 @@ describe "Deleting a resource" do
     expect {
       click_on("Delete")
     }.to change(Resource.all, :count).by(-1)
+    expect(page).to have_text("Resource successfully destroyed!")
   end
 end

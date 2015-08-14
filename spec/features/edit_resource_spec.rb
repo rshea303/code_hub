@@ -14,6 +14,7 @@ describe "Edit a resource" do
     click_on("Update")
 
     expect(page).to have_text("Updated Name")
+    expect(page).to have_text("Resource successfully updated!")
   end 
 
   it "can edit the link of a resource" do
@@ -23,6 +24,7 @@ describe "Edit a resource" do
     resource = Resource.find(@resource.id)
 
     expect(resource.link).to eq("http://updated.com")
+    expect(page).to have_text("Resource successfully updated!")
   end
 
   it "can edit the rating of a resource" do
@@ -30,5 +32,6 @@ describe "Edit a resource" do
     click_on("Update")
 
     expect(page).to have_text("Poor")
+    expect(page).to have_text("Resource successfully updated!")
   end
 end

@@ -15,7 +15,7 @@ class ResourcesController < ApplicationController
     @resource = Resource.find(params[:id])
     @resource.update(resource_params)
 
-    redirect_to resource_path(@resource)
+    redirect_to resource_path(@resource), notice: "Resource successfully updated!"
   end
 
   def new
@@ -25,7 +25,7 @@ class ResourcesController < ApplicationController
   def create
     @resource = Resource.new(resource_params)
     if @resource.save
-      redirect_to resource_path(@resource)
+      redirect_to resource_path(@resource), notice: "Resource successfully created!"
     else
       render :new
     end
@@ -34,7 +34,7 @@ class ResourcesController < ApplicationController
   def destroy
     @resource = Resource.find(params[:id])
     @resource.destroy
-    redirect_to resources_path
+    redirect_to resources_path, alert: "Resource successfully destroyed!"
   end
 
   private

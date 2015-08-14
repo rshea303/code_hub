@@ -2,7 +2,6 @@ class Resource < ActiveRecord::Base
   validates :name, :link, :description, :rating, presence: true
   validates :rating, inclusion: { in: (0..5) }
   validates :description, length: { maximum: 200 }
-  validates :link, uniqueness: { case_sensitive: false }
 
   def poor?
     self.rating < 3
