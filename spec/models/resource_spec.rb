@@ -70,4 +70,24 @@ RSpec.describe Resource, type: :model do
     expect(resource2).not_to be_valid
   end
 
+  it "has many reviews" do
+    resource = Resource.create(resource_attributes(link: "http://EXAMPLE1.com"))
+    resource.reviews.create(review_attributes(name: "Review 1"))
+    resource.reviews.create(review_attributes(name: "Review 2"))
+    resource.reviews.create(review_attributes(name: "Review 3"))
+
+    expect(resource.reviews.count).to eq(3)
+  end
+
+  it "deletes associated reviews" do
+    resource = Resource.create(resource_attributes(link: "http://EXAMPLE1.com"))
+    resource.reviews.create(review_attributes(name: "Review 1"))
+    resource.reviews.create(review_attributes(name: "Review 2"))
+    resource.reviews.create(review_attributes(name: "Review 3"))
+
+    expect {
+      resource.destroy
+    }.to change(Review, :count).by(-3)
+  end
+
 end
