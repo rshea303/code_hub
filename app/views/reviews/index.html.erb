@@ -1,0 +1,14 @@
+<h1>Reviews for: <%= link_to @resource.name, resource_path(@resource) %></h1>
+
+<ol class="reviews">
+  <% @reviews.each do |review| %>
+    <li>
+      <p>
+        <%= pluralize(review.rating, 'star') %> by <%= review.name %>
+      </p>
+      <p>
+        <%= review.comment %>
+      </p>
+    </li>
+  <% end %>
+</ol>
