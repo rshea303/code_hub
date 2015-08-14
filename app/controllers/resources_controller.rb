@@ -1,6 +1,6 @@
 class ResourcesController < ApplicationController
   def index
-    @resources = Resource.popular
+    @resources = Resource.all
   end
 
   def show
@@ -40,6 +40,6 @@ class ResourcesController < ApplicationController
   private
 
   def resource_params
-    params.require(:resource).permit(:name, :description, :link, :rating)
+    params.require(:resource).permit(:name, :description, :link)
   end
 end

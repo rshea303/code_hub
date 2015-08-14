@@ -11,8 +11,6 @@
     <%= f.label :link %>
     <%= f.text_field :link %>
   </p>
-    <%= f.label :rating %>
-    <%= f.number_field :rating %>
   <p>
     <% if @resource.new_record? %>
       <%= f.submit "Create" %> <span><%= link_to "Cancel", resources_path %></span>

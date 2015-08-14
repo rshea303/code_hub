@@ -6,8 +6,6 @@
   <%= @resource.description %>
 </p>
 
-<h3>Rating: <%= format_rating(@resource) %></h3>
-
 <%= link_to "Write a review", new_resource_review_path(@resource) %>
 <%= link_to "Reviews", resource_reviews_path(@resource) %>
 

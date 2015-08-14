@@ -27,11 +27,4 @@ describe "Edit a resource" do
     expect(page).to have_text("Resource successfully updated!")
   end
 
-  it "can edit the rating of a resource" do
-    fill_in "resource[rating]", with: 0
-    click_on("Update")
-
-    expect(page).to have_text("Poor")
-    expect(page).to have_text("Resource successfully updated!")
-  end
 end
