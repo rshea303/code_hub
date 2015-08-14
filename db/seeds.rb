@@ -3,15 +3,18 @@ def generate_resources
   Resource.create!([
     {
      name: "Pragmatic Studios",
-     link: "https://pragmaticstudio.com", 
+     description: "Series of online videos and guided tutorials for learning both Ruby and Rails", 
+     link: "https://pragmaticstudio.com" 
     },
     {
      name: "Schema Design",
-     link: "http://ondras.zarovi.cz/sql/demo/",
+     description: "Allows for visual represenation of database relationships.",
+     link: "http://ondras.zarovi.cz/sql/demo/"
     },
     {
      name: "SQL Course",
-     link: "http://sqlcourse.com",
+     description: "Learn SQL with a series of basic exercises.",
+     link: "http://sqlcourse.com"
     }
   ])
   puts "resources complete."
