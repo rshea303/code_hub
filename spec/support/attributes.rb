@@ -13,3 +13,12 @@ def review_attributes(overrides = {})
     comment: "This resource is average. Nothing special"
   }.merge(overrides)
 end
+
+def user_attributes(overrides = {})
+  {
+    name: "Username",
+    email: "username@example.com",
+    password: "password",
+    password_confirmation: "password"
+  }
+end

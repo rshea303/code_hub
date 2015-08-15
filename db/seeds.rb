@@ -20,4 +20,29 @@ def generate_resources
   puts "resources complete."
 end
 
+def generate_users
+  puts "generating users..."
+  User.create!([
+    {
+     name: "User1",
+     email: "user1@example.com",
+     password: "password",
+     password_confirmation: "password"
+    },
+    {
+     name: "User2",
+     email: "user2@example.com",
+     password: "password",
+     password_confirmation: "password"
+    },
+    {
+     name: "User3",
+     email: "user3@example.com",
+     password: "password",
+     password_confirmation: "password"
+    }])
+  puts "users complete."
+end
+
 generate_resources
+generate_users

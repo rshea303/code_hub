@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  get 'reviews/index'
+  get 'users/index'
 
   root "resources#index"
+
+  resources :users
 
   resources :resources do 
     resources :reviews
