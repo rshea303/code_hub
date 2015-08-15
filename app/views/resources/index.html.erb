@@ -5,6 +5,7 @@
     <tr> 
       <th>Resource</th>
       <th>Description</th>
+      <th>Average Rating</th>
     </tr>
   </thead>
   <tbody>
@@ -12,6 +13,7 @@
     <tr>
       <td><%= link_to resource.name, resource_path(resource) %></td>
       <td><%= resource.description %></td>
+      <td><%= format_average_rating(resource) %></td>
     </tr>
   </tbody>
 <% end %>

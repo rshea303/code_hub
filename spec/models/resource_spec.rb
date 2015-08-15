@@ -59,4 +59,15 @@ RSpec.describe Resource, type: :model do
     }.to change(Review, :count).by(-3)
   end
 
+  it "calculates the average rating" do
+    resource = Resource.create(resource_attributes)
+
+    resource.reviews.create(review_attributes(rating: 1))
+    resource.reviews.create(review_attributes(rating: 2))
+    resource.reviews.create(review_attributes(rating: 4))
+    resource.reviews.create(review_attributes(rating: 5))
+
+    expect(resource.average_rating.to_s).to eq("3.0")
+  end
+
 end

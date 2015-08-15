@@ -4,4 +4,8 @@ class Resource < ActiveRecord::Base
   validates :name, :link, :description, presence: true
   validates :description, length: { maximum: 200 }
   validates :link, uniqueness: { case_sensitive: false }
+
+  def average_rating
+    reviews.average(:rating)
+  end
 end
