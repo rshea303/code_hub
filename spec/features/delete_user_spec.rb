@@ -4,6 +4,8 @@ describe "Deleting a user" do
   it "removes user from the database" do
     user = User.create(user_attributes)
 
+    sign_in(user)
+
     visit user_url(user)
 
     expect {

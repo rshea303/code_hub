@@ -4,6 +4,8 @@ describe "Show user" do
   it "displays a user attributes" do
     user1 = User.create(user_attributes)
 
+    sign_in(user1)
+
     visit user_url(user1)
 
     expect(current_path).to eq(user_path(user1))

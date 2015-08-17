@@ -6,7 +6,8 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to user_path(user)
+      redirect_to(session[:intended_url] || user)
+      session[:intended_url] = nil
     else
       redirect_to sign_in_path, alert: "Invalid email/password combination"
     end

@@ -6,6 +6,8 @@ describe "Listing users" do
     user2 = User.create(user_attributes(email: "user2@example.com"))
     user3 = User.create(user_attributes(email: "user3@example.com"))
 
+    sign_in(user1)
+
     visit users_url
 
     expect(page).to have_text(user1.name)
