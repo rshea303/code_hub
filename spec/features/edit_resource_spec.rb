@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 describe "Edit a resource" do
+
   before do
     @resource = Resource.create!(resource_attributes)
     

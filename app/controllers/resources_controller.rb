@@ -1,4 +1,7 @@
 class ResourcesController < ApplicationController
+  before_action :require_sign_in, except: [:show, :index]
+  before_action :require_admin, only: [:edit, :update, :destroy]
+
   def index
     @resources = Resource.all
   end
@@ -42,4 +45,5 @@ class ResourcesController < ApplicationController
   def resource_params
     params.require(:resource).permit(:name, :description, :link)
   end
-end
+
+  end

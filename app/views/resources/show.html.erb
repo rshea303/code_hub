@@ -1,5 +1,7 @@
+<% if current_user_admin? %>
 <h1><%= @resource.name %></h1><%= link_to "Edit", edit_resource_path(@resource) %> | 
                               <%= link_to "Delete", resource_path(@resource), method: :delete %>
+<% end %>
 
 <h3>Description</h3>
 <p>

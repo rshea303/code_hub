@@ -1,6 +1,12 @@
 require 'rails_helper'
 
 describe "Deleting a resource" do
+
+  before do
+    admin = User.create!(user_attributes(admin: true))
+    sign_in(admin)
+  end
+
   it "destroys the movie and removes it from the database" do
     resource = Resource.create(resource_attributes)
 

@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 describe "Creating a resource" do
+
   it "creates a new resource in the database" do
     visit root_url
 
