@@ -16,13 +16,7 @@ describe "Signing in" do
   it "signs in a registered user" do
     user = User.create(user_attributes(email: "user@example.com"))
 
-    visit root_url
-    click_on("Sign In")
-    fill_in "email", with: user.email
-    fill_in "password", with: user.password
-    within(".sign-in") do
-      click_on("Sign In")
-    end
+    sign_in(user)
 
     expect(page).to have_text("Welcome, #{user.name}")
   end
@@ -45,13 +39,7 @@ describe "Signing in" do
   it "removes sign in and sign up links when user is signed in" do
     user = User.create(user_attributes(email: "user@example.com"))
 
-    visit root_url
-    click_on("Sign In")
-    fill_in "email", with: user.email
-    fill_in "password", with: user.password 
-    within(".sign-in") do
-      click_on("Sign In")
-    end
+    sign_in(user)
 
     expect(page).not_to have_text("Sign In")
     expect(page).not_to have_text("Sign Up")

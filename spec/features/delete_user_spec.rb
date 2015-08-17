@@ -13,4 +13,17 @@ describe "Deleting a user" do
     expect(current_path).to eq(root_path)
     expect(page).to have_text("Account successfully deleted!")
   end
+
+  it "automatically signs out that user" do
+    user = User.create(user_attributes)
+
+    sign_in(user) 
+
+    visit user_path(user) 
+
+    click_on("Delete")
+
+    expect(page).to have_text("Sign In")
+    expect(page).to have_text("Sign Up")
+  end
 end
