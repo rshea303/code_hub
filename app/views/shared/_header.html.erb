@@ -5,10 +5,13 @@
     </p>
     <p>
       <% if current_user %>
-        Welcome, <%= current_user.name %>
+        Welcome, <%= current_user.name %> |
+        <%= link_to "Account Settings", edit_user_path(current_user) %>
+        <%= link_to "Sign Out", session_path, method: :delete %> 
+      <% else %>
+        <%= link_to "Sign Up", signup_path, class: "button" %> |
+        <%= link_to "Sign In", new_session_path, class: "button" %>
       <% end %>
-      <%= link_to "Sign Up", signup_path, class: "button" %> |
-      <%= link_to "Sign In", new_session_path, class: "button" %>
     </p>
   </nav>
 </header>

@@ -25,4 +25,20 @@ describe "Creating a user" do
       click_on("Submit")
     }.not_to change(User, :count)
   end
+
+  it "automatically signs in a user" do
+    visit root_url
+
+    click_on("Sign Up")
+
+    fill_in "user[name]", with: "New User"
+    fill_in "user[email]", with: "new_user@example.com"
+    fill_in "user[password]", with: "password"
+    fill_in "user[password_confirmation]", with: "password"
+    click_on("Submit")
+
+    expect(page).to have_text("Welcome, New User")
+    expect(page).not_to have_text("Sign In")
+    expect(page).not_to have_text("Sign Up")
+  end
 end

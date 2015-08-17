@@ -8,7 +8,12 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to user_path(user)
     else
-      redirect_to sign_in_path, alert: "Invalid email/passoword combination"
+      redirect_to sign_in_path, alert: "Invalid email/password combination"
     end
+  end
+
+  def destroy
+    session[:user_id] = nil
+    redirect_to resources_path, notice: "Come back soon!"
   end
 end
