@@ -17,7 +17,6 @@ end
 
 def review_attributes(overrides = {})
   {
-    name: "Rich",
     rating: 3,
     comment: "This resource is average. Nothing special"
   }.merge(overrides)

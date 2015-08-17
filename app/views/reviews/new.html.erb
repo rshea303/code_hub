@@ -2,12 +2,8 @@
 
 <%= form_for([@resource, @review]) do |f| %>
   <p>
-    <%= f.label :name %>
-    <%= f.text_field :name, autofocus: true %>
-  </p>
-  <p>
     <%= f.label :comment %>
-    <%= f.text_area :comment, cols: 40, rows: 5 %>
+    <%= f.text_area :comment, autofocus: true, cols: 40, rows: 5 %>
   </p>
   <p>
     <%= f.label :rating %>

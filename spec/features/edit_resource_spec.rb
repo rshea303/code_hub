@@ -4,6 +4,8 @@ describe "Edit a resource" do
 
   before do
     @resource = Resource.create!(resource_attributes)
+    admin = User.create(user_attributes(admin: true))
+    sign_in(admin)
     
     visit resource_url(@resource)
 

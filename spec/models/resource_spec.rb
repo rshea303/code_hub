@@ -41,18 +41,18 @@ RSpec.describe Resource, type: :model do
 
   it "has many reviews" do
     resource = Resource.create(resource_attributes(link: "http://EXAMPLE1.com"))
-    resource.reviews.create(review_attributes(name: "Review 1"))
-    resource.reviews.create(review_attributes(name: "Review 2"))
-    resource.reviews.create(review_attributes(name: "Review 3"))
+    resource.reviews.create(review_attributes)
+    resource.reviews.create(review_attributes)
+    resource.reviews.create(review_attributes)
 
     expect(resource.reviews.count).to eq(3)
   end
 
   it "deletes associated reviews" do
     resource = Resource.create(resource_attributes(link: "http://EXAMPLE1.com"))
-    resource.reviews.create(review_attributes(name: "Review 1"))
-    resource.reviews.create(review_attributes(name: "Review 2"))
-    resource.reviews.create(review_attributes(name: "Review 3"))
+    resource.reviews.create(review_attributes)
+    resource.reviews.create(review_attributes)
+    resource.reviews.create(review_attributes)
 
     expect {
       resource.destroy

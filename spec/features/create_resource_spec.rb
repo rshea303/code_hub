@@ -3,6 +3,9 @@ require 'rails_helper'
 describe "Creating a resource" do
 
   it "creates a new resource in the database" do
+    user = User.create(user_attributes)
+    sign_in(user)
+
     visit root_url
 
     click_on("Add New Resource")

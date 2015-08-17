@@ -8,12 +8,6 @@ describe "A review" do
     expect(review.resource).to eq(resource)
   end
 
-  it "is not valid without a name" do
-    review = Review.new(review_attributes(name: nil))
-
-    expect(review).not_to be_valid
-  end
-
   it "is not valid without a comment" do
     review = Review.new(review_attributes(comment: nil))
 

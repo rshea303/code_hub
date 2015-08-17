@@ -10,3 +10,16 @@
     <%= @user.email %>
   </li> 
 </ul>
+
+<% if @reviews.any? %>
+<h3>Reviews:</h3>
+<ul>
+  <% @reviews.each do |review| %>
+  <li>
+    <%= link_to review.resource.name, resource_path(review.resource) %>
+    <%= review.rating %>
+    <%= review.comment %>
+  </li>
+  <% end %> 
+</ul>
+<% end %>

@@ -16,7 +16,7 @@ describe "A user" do
   end
 
   it "accepts properly formatted email addresses" do
-    emails = ["test@example.com", "test.test@example.com", "test_test.example.com", "test.test.tset@example.com"]
+    emails = ["test@example.com", "test.test@example.com", "test_test@example.com", "test.test.tset@example.com"]
     emails.each do |email|
       user = User.new(user_attributes(email: email))
       expect(user).to be_valid
@@ -80,4 +80,20 @@ describe "A user" do
     expect(user).to be_valid
   end
 
+  it "has reviews" do
+    user = User.create!(user_attributes)
+    resource1 = Resource.create!(resource_attributes(name: "Resource 1", link: "http://one.com"))
+    resource2 = Resource.create!(resource_attributes(name: "Resource 2", link: "http://two.com"))
+
+    review1 = resource1.reviews.new(comment: "Great resource", rating: 5)
+    review1.user = user
+    review1.save
+
+    review2 = resource2.reviews.new(comment: "Good resource", rating: 3)
+    review2.user = user
+    review2.save
+
+    expect(user.reviews).to include(review1)
+    expect(user.reviews).to include(review2)
+  end
 end
