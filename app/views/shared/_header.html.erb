@@ -4,7 +4,11 @@
       <h1>CodeHub</h1>
     </p>
     <p>
-      <%= link_to "Sign Up", signup_path, class: "button" %>
+      <% if current_user %>
+        Welcome, <%= current_user.name %>
+      <% end %>
+      <%= link_to "Sign Up", signup_path, class: "button" %> |
+      <%= link_to "Sign In", new_session_path, class: "button" %>
     </p>
   </nav>
 </header>

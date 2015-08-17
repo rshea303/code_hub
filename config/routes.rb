@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   root "resources#index"
 
+  resource :session
   resources :users
 
   resources :resources do 
