@@ -1,6 +1,16 @@
+<h1><%= @resource.name %></h1>
+
+<% if current_user %>
+  <% if @current_favorite %>
+    <%= button_to "Remove from favorites", resource_favorite_path(@resource, @current_favorite), method: :delete %></h1>
+  <% else %>
+    <%= button_to "Add to favorites!", resource_favorites_path(@resource) %>
+  <% end %>
+<% end %>
+
 <% if current_user_admin? %>
-<h1><%= @resource.name %></h1><%= link_to "Edit", edit_resource_path(@resource) %> | 
-                              <%= link_to "Delete", resource_path(@resource), method: :delete %>
+  <%= link_to "Edit", edit_resource_path(@resource) %> | 
+  <%= link_to "Delete", resource_path(@resource), method: :delete %>
 <% end %>
 
 <h3>Description</h3>

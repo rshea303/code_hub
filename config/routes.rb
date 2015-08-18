@@ -9,5 +9,6 @@ Rails.application.routes.draw do
 
   resources :resources do 
     resources :reviews
+    resources :favorites
   end
 end

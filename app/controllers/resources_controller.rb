@@ -8,6 +8,11 @@ class ResourcesController < ApplicationController
 
   def show
     @resource = Resource.find(params[:id])
+    @fans = @resource.fans
+
+    if current_user
+      @current_favorite = current_user.favorites.find_by(resource_id: @resource.id)
+    end
   end
 
   def edit
