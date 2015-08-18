@@ -70,4 +70,15 @@ RSpec.describe Resource, type: :model do
     expect(resource.average_rating.to_s).to eq("3.0")
   end
 
+  it "has fans" do
+    resource = Resource.new(resource_attributes)
+    fan1 = User.new(user_attributes(email: "fan1@example.com"))
+    fan2 = User.new(user_attributes(email: "fan2@example.com"))
+
+    resource.favorites.new(user: fan1)
+    resource.favorites.new(user: fan2)
+
+    expect(resource.fans).to include(fan1)
+    expect(resource.fans).to include(fan2)
+  end
 end

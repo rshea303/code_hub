@@ -96,4 +96,16 @@ describe "A user" do
     expect(user.reviews).to include(review1)
     expect(user.reviews).to include(review2)
   end
+
+  it "has favorite resources" do
+    user = User.new(user_attributes)
+    resource1 = Resource.new(resource_attributes(name: "Resource 1"))
+    resource2 = Resource.new(resource_attributes(name: "Resource 2"))
+
+    user.favorites.new(resource: resource1)
+    user.favorites.new(resource: resource2)
+
+    expect(user.favorite_resources).to include(resource1)
+    expect(user.favorite_resources).to include(resource2)
+  end
 end
