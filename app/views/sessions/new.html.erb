@@ -1,15 +1,10 @@
+<h3>Sign In</h3>
 <div class="sign-in">
   <%= form_tag(:session, url: session_path) do %>
-    <p>
       <%= label_tag :email %>
       <%= email_field_tag :email, nil %>
-    </p>
-    <p>
       <%= label_tag :password %>
       <%= password_field_tag :password, nil %>
-    </p>
-    <p>
       <%= submit_tag "Sign In" %> 
-    </p>
   <% end %>
 </div>

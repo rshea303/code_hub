@@ -1,36 +1,35 @@
-<h1>Profile for: <%= @user.name %></h1>
+<h3>Profile for: <%= @user.name %></h3>
 
 <% if current_user?(@user) %>
-  <%= link_to 'Edit', edit_user_path(@user) %>
+  <%= link_to 'Edit', edit_user_path(@user) %> |
   <%= link_to 'Delete', user_path(@user), method: :delete %>
 <% end %>
 
-<ul>
-  <li>
-    <%= @user.email %>
-  </li> 
-</ul>
-
-<% if @reviews.any? %>
-<h3>Reviews:</h3>
-<ul>
-  <% @reviews.each do |review| %>
-  <li>
-    <%= link_to review.resource.name, resource_path(review.resource) %>
-    <%= review.rating %>
-    <%= review.comment %>
-  </li>
-  <% end %> 
-</ul>
-<% end %>
-
-<% if @favorite_resources.any? %>
 <h3>Favorite Resources:</h3>
-<ul>
-  <% @favorite_resources.each do |resource| %>
-  <li>
-    <%= link_to resource.name, resource_path(resource) %>
-  </li>
-  <% end %>
-</ul>
+<% if @favorite_resources.any? %>
+  <ul>
+    <% @favorite_resources.each do |resource| %>
+    <li>
+      <%= link_to resource.name, resource_path(resource) %>
+    </li>
+    <% end %>
+  </ul>
+<% else %>
+  <h4>You have not identified any favorite resources yet.</h4>
 <% end %>
+
+<h3>Reviews:</h3>
+<% if @reviews.any? %>
+  <ul>
+    <% @reviews.each do |review| %>
+    <li>
+      <%= link_to review.resource.name, resource_path(review.resource) %>
+      (rating: <%= review.rating %>)
+      "<%= review.comment %>"
+    </li>
+    <% end %> 
+  </ul>
+<% else %>
+  <h4>You have not reviewed any resources yet.</h4>
+<% end %>
+

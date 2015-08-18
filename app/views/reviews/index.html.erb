@@ -1,14 +1,19 @@
-<h1>Reviews for: <%= link_to @resource.name, resource_path(@resource) %></h1>
+<h3>Reviews for: <%= link_to @resource.name, resource_path(@resource) %></h3>
 
-<ol class="reviews">
-  <% @reviews.each do |review| %>
-    <li>
-      <p>
-        <%= pluralize(review.rating, 'star') %> by <%= link_to review.user.name, user_path(review.user) %>
-      </p>
-      <p>
-        <%= review.comment %>
-      </p>
-    </li>
-  <% end %>
-</ol>
+<% if @reviews.any? %>
+  <ol class="reviews">
+    <% @reviews.each do |review| %>
+      <li>
+        <p>
+          <%= pluralize(review.rating, 'star') %> by <%= link_to review.user.name, user_path(review.user) %>
+        </p>
+        <p>
+          <%= review.comment %>
+        </p>
+      </li>
+    <% end %>
+  </ol>
+<% else %>
+  <h4>There are no reviews for this resource</h4>
+  <h4>You can be the first to <%= link_to "write a review", new_resource_review_path(@resource) %> for this resource!</h4>
+<% end %>

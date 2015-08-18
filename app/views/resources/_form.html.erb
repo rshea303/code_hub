@@ -1,21 +1,15 @@
 <%= form_for @resource do |f| %>
-  <p>
-    <%= f.label :name %>
-    <%= f.text_field :name, autofocus: true %>
-  </p>
-  <p>
-    <%= f.label :description %>
-    <%= f.text_area :description, cols: 40, rows: 7 %>
-  </p>
-  <p>
-    <%= f.label :link %>
-    <%= f.text_field :link %>
-  </p>
-  <p>
-    <% if @resource.new_record? %>
-      <%= f.submit "Create" %> <span><%= link_to "Cancel", resources_path %></span>
-    <% else %>
-      <%= f.submit "Update" %> <span><%= link_to "Cancel", resource_path(@resource) %></span>
-    <% end %>
-  </p>
+      <%= f.label :name %>
+      <%= f.text_field :name, autofocus: true, class: "form-control" %>
+      <%= f.label :description %>
+      <%= f.text_area :description, rows: 5, class: "form-control" %>
+      <%= f.label :link %>
+      <%= f.text_field :link, class: "form-control" %>
+    <p>
+      <% if @resource.new_record? %>
+        <%= f.submit "Create" %> <span><%= link_to "Cancel", resources_path %></span>
+      <% else %>
+        <%= f.submit "Update" %> <span><%= link_to "Cancel", resource_path(@resource) %></span>
+      <% end %>
+    </p>
 <% end %>

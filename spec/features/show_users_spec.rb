@@ -10,6 +10,5 @@ describe "Show user" do
 
     expect(current_path).to eq(user_path(user1))
     expect(page).to have_text(user1.name)
-    expect(page).to have_text(user1.email)
   end
 end
