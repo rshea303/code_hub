@@ -8,9 +8,9 @@
           <%= pluralize(review.rating, 'star') %> by <%= link_to review.user.name, user_path(review.user) %>
         </p>
         <p>
-          <%= review.comment %>
+          "<%= review.comment %>"
         </p>
-      </li>
+      </li><br>
     <% end %>
   </ol>
 <% else %>
