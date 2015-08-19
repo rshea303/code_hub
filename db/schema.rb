@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150818184736) do
+ActiveRecord::Schema.define(version: 20150819193525) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categorizations", force: :cascade do |t|
+    t.integer  "resource_id"
+    t.integer  "keyword_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "categorizations", ["keyword_id"], name: "index_categorizations_on_keyword_id", using: :btree
+  add_index "categorizations", ["resource_id"], name: "index_categorizations_on_resource_id", using: :btree
 
   create_table "favorites", force: :cascade do |t|
     t.integer  "resource_id"
@@ -25,6 +35,12 @@ ActiveRecord::Schema.define(version: 20150818184736) do
 
   add_index "favorites", ["resource_id"], name: "index_favorites_on_resource_id", using: :btree
   add_index "favorites", ["user_id"], name: "index_favorites_on_user_id", using: :btree
+
+  create_table "keywords", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "resources", force: :cascade do |t|
     t.string   "name"
@@ -52,6 +68,8 @@ ActiveRecord::Schema.define(version: 20150818184736) do
     t.string   "name"
   end
 
+  add_foreign_key "categorizations", "keywords"
+  add_foreign_key "categorizations", "resources"
   add_foreign_key "favorites", "resources"
   add_foreign_key "favorites", "users"
 end

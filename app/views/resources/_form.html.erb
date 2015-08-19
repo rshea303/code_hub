@@ -6,6 +6,7 @@
       <%= f.text_area :description, rows: 2, class: "form-control" %>
       <%= f.label "Link (All links must start with http://)" %>
       <%= f.text_field :link, class: "form-control", placeholder: "http://example.com" %>
+      <%= f.collection_check_boxes(:keyword_ids, Keyword.all, :id, :name) %>
     <p>
       <% if @resource.new_record? %>
         <%= f.submit "Create", class: "btn btn-success btn-sm" %> <span><%= link_to "Cancel", resources_path %></span>

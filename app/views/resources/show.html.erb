@@ -23,6 +23,15 @@
   <%= @resource.description %>
 </p>
 
+<% if @keywords.any? %>
+<h3>Keywords:</h3>
+  <ul>
+  <% @keywords.each do |keyword| %>
+    <li><%= keyword.name %></li>
+  <% end %>
+</ul>
+<% end %>
+
 <%= link_to "Write a review", new_resource_review_path(@resource) %> |
 <%= link_to "See All Reviews", resource_reviews_path(@resource) %>
 
