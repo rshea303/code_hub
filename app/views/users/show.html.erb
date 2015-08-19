@@ -5,20 +5,27 @@
   <%= link_to 'Delete', user_path(@user), method: :delete %>
 <% end %>
 
-<h3>Favorite Resources:</h3>
-<% if @favorite_resources.any? %>
-  <ul>
-    <% @favorite_resources.each do |resource| %>
-    <li>
-      <%= link_to resource.name, resource_path(resource) %>
-    </li>
+<div class="row">
+  <div class="col-xs-4">
+    <h3>Favorite Resources:</h3>
+    <% if @favorite_resources.any? %>
+      <table class="table table-condensed table-striped user-resource-table">
+        <% @favorite_resources.each do |resource| %>
+          <tbody>
+            <tr>
+              <td><%= link_to "Visit Site", resource.link, :target => "_blank", class: "btn btn-success btn-sm" %></td>
+              <td><%= link_to resource.name, resource_path(resource) %></td>
+            </tr>
+          </body>
+        <% end %>
+      </table>
+    <% else %>
+      <h4>You have not identified any favorite resources yet.</h4>
     <% end %>
-  </ul>
-<% else %>
-  <h4>You have not identified any favorite resources yet.</h4>
-<% end %>
+  </div>
+</div>
 
-<h3>Reviews:</h3>
+<h3>My Reviews:</h3>
 <% if @reviews.any? %>
   <ul>
     <% @reviews.each do |review| %>
