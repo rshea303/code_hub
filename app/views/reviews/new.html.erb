@@ -1,6 +1,7 @@
 <h1>Review for: <%= @resource.name %></h1>
 
 <%= form_for([@resource, @review]) do |f| %>
+  <%= render 'shared/errors', object: @review %>
   <p>
     <%= f.label :comment %>
     <%= f.text_area :comment, autofocus: true, cols: 40, rows: 5, class: "form-control" %>

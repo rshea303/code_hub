@@ -4,6 +4,7 @@ describe "Show user" do
   it "displays a user attributes" do
     user1 = User.create(user_attributes)
 
+    visit root_url
     sign_in(user1)
 
     visit user_url(user1)

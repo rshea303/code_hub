@@ -4,9 +4,9 @@ describe "Creating a resource" do
 
   it "creates a new resource in the database" do
     user = User.create(user_attributes)
-    sign_in(user)
 
     visit root_url
+    sign_in(user)
 
     click_on("Add New Resource")
 

@@ -3,6 +3,7 @@ require 'rails_helper'
 describe "Viewing a list of reviews" do
   before do
     @user = User.create(user_attributes)
+    visit root_url
     sign_in(@user)
   end 
 

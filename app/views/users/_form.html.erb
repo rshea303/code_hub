@@ -1,21 +1,23 @@
 <%= form_for @user do |f| %>
-      <%= f.label :name %>
+  <%= render 'shared/errors', object: @user %>
+      <%= f.label :name, autofocus: true %>
       <%= f.text_field :name, class: "form-control" %>
       <%= f.label :email %>
       <%= f.text_field :email, class: "form-control" %>
       <%= f.label :password %>
       <%= f.password_field :password, class: "form-control" %>
-    <div class="form-group">
       <%= f.label :password_confirmation, "Confirm Password" %>
       <%= f.password_field :password_confirmation, class: "form-control" %>
 
     <% if @user.new_record? %>
       <p>
-        <%= f.submit "Submit" %>
+        <%= f.submit "Submit", class: "btn btn-sucess btn-sm" %>
+        <%= link_to "Cancel", resources_path %>
       </p>
     <% else %>
       <p>
-        <%= f.submit "Update Account" %>
+        <%= f.submit "Update Account", class: "btn btn-success btn-sm" %>
+        <%= link_to "Cancel", resources_path %>
       </p>
     <% end %>
 <% end %>

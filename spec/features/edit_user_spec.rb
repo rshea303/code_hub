@@ -4,6 +4,7 @@ describe "Editing a user" do
   it "updates the user attributes" do
     user = User.create(user_attributes)
 
+    visit root_url
     sign_in(user)
 
     visit user_path(user)

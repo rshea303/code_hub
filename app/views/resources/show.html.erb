@@ -2,9 +2,9 @@
 
 <% if current_user %>
   <% if @current_favorite %>
-    <%= button_to "Remove from favorites", resource_favorite_path(@resource, @current_favorite), method: :delete %></h1>
+    <%= button_to "Remove from favorites", resource_favorite_path(@resource, @current_favorite), method: :delete, class: "btn btn-danger btn-sm" %></h1>
   <% else %>
-    <%= button_to "Add to favorites!", resource_favorites_path(@resource) %>
+    <%= button_to "Add to favorites!", resource_favorites_path(@resource), class: "btn btn-success btn-sm" %>
   <% end %>
 <% end %>
 

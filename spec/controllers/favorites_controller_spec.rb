@@ -15,13 +15,13 @@ describe FavoritesController do
     it "cannot access create" do
       post :create, resource_id: @resource
 
-      expect(response).to redirect_to(new_session_url)
+      expect(response).to redirect_to(root_url)
     end
 
     it "cannot access destroy" do
       delete :destroy, id: 1, resource_id: @resource
 
-      expect(response).to redirect_to(new_session_url)
+      expect(response).to redirect_to(root_url)
     end
   end
 end

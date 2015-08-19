@@ -3,6 +3,7 @@ require 'rails_helper'
 describe "Favoriting a resource" do
   before do
     @user = User.create!(user_attributes)
+    visit root_url
     sign_in(@user)
   end
 

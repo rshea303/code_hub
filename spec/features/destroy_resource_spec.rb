@@ -4,6 +4,7 @@ describe "Deleting a resource" do
 
   before do
     admin = User.create!(user_attributes(admin: true))
+    visit root_url
     sign_in(admin)
   end
 

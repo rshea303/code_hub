@@ -6,6 +6,7 @@ describe "Listing users" do
     user2 = User.create(user_attributes(email: "user2@example.com"))
     user3 = User.create(user_attributes(email: "user3@example.com"))
 
+    visit root_url
     sign_in(user1)
 
     visit users_url

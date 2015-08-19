@@ -4,6 +4,7 @@ describe "Creating a new review" do
 
   before do 
     @user = User.create(user_attributes)
+    visit root_url
     sign_in(@user)
   end
 

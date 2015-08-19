@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       redirect_to(session[:intended_url] || user)
       session[:intended_url] = nil
     else
-      redirect_to sign_in_path, alert: "Invalid email/password combination"
+      redirect_to :back, alert: "Invalid email/password combination"
     end
   end
 
