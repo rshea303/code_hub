@@ -49,7 +49,7 @@ class ResourcesController < ApplicationController
   private
 
   def resource_params
-    params.require(:resource).permit(:name, :description, :link)
+    params.require(:resource).permit(:name, :description, :link, keyword_ids: [])
   end
 
   end
