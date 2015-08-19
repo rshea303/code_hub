@@ -13,7 +13,7 @@
         <% @favorite_resources.each do |resource| %>
           <tbody>
             <tr>
-              <td><%= link_to "Visit Site", resource.link, :target => "_blank", class: "btn btn-success btn-sm" %></td>
+              <td><%= link_to "Visit Site", resource.link, :target => "_blank", class: "btn btn-primary btn-sm" %></td>
               <td><%= link_to resource.name, resource_path(resource) %></td>
             </tr>
           </body>

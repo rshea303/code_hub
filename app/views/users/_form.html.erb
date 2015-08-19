@@ -1,7 +1,7 @@
 <%= form_for @user do |f| %>
   <%= render 'shared/errors', object: @user %>
-      <%= f.label :name, autofocus: true %>
-      <%= f.text_field :name, class: "form-control" %>
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "form-control", autofocus: true %>
       <%= f.label :email %>
       <%= f.text_field :email, class: "form-control" %>
       <%= f.label :password %>
@@ -11,7 +11,7 @@
 
     <% if @user.new_record? %>
       <p>
-        <%= f.submit "Submit", class: "btn btn-sucess btn-sm" %>
+        <%= f.submit "Submit", class: "btn btn-success btn-sm" %>
         <%= link_to "Cancel", resources_path %>
       </p>
     <% else %>

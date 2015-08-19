@@ -10,7 +10,7 @@
   <tbody>
   <% @resources.each do |resource| %>
     <tr>
-      <td><%= link_to "Visit Site", resource.link, :target => "_blank", class: "btn btn-success btn-sm" %></td>
+      <td><%= link_to "Visit Site", resource.link, :target => "_blank", class: "btn btn-primary btn-sm" %></td>
       <td><%= link_to resource.name, resource_path(resource) %></td>
       <td><%= resource.description %></td>
       <td><%= format_average_rating(resource) %></td>

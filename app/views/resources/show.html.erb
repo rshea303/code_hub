@@ -1,5 +1,9 @@
-<h1><%= @resource.name %></h1>
+<h3><%= @resource.name %></h3>
+<div class="visit-site">
+<%= link_to "Visit Site", @resource.link, :target => "_blank", class: "btn btn-primary btn-sm" %>
+</div>
 
+<div class="favorite-status">
 <% if current_user %>
   <% if @current_favorite %>
     <%= button_to "Remove from favorites", resource_favorite_path(@resource, @current_favorite), method: :delete, class: "btn btn-danger btn-sm" %></h1>
@@ -7,6 +11,7 @@
     <%= button_to "Add to favorites!", resource_favorites_path(@resource), class: "btn btn-success btn-sm" %>
   <% end %>
 <% end %>
+</div>
 
 <% if current_user_admin? %>
   <%= link_to "Edit", edit_resource_path(@resource) %> | 

@@ -4,8 +4,8 @@
       <%= f.text_field :name, autofocus: true, class: "form-control" %>
       <%= f.label :description %>
       <%= f.text_area :description, rows: 2, class: "form-control" %>
-      <%= f.label :link %>
-      <%= f.text_field :link, class: "form-control" %>
+      <%= f.label "Link (All links must start with http://)" %>
+      <%= f.text_field :link, class: "form-control", placeholder: "http://example.com" %>
     <p>
       <% if @resource.new_record? %>
         <%= f.submit "Create", class: "btn btn-success btn-sm" %> <span><%= link_to "Cancel", resources_path %></span>

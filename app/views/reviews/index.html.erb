@@ -5,10 +5,7 @@
     <% @reviews.each do |review| %>
       <li>
         <p>
-          <%= pluralize(review.rating, 'star') %> by <%= link_to review.user.name, user_path(review.user) %>
-        </p>
-        <p>
-          "<%= review.comment %>"
+        <%= pluralize(review.rating, 'star') %> by <%= link_to review.user.name, user_path(review.user) %>, <%= review.comment %>
         </p>
       </li><br>
     <% end %>
