@@ -6,7 +6,21 @@
       <%= f.text_area :description, rows: 2, class: "form-control" %>
       <%= f.label "Link (All links must start with http://)" %>
       <%= f.text_field :link, class: "form-control", placeholder: "http://example.com" %>
-      <%= f.collection_check_boxes(:keyword_ids, Keyword.all, :id, :name) %>
+      <h5><strong>Keywords</strong></h5>
+      <%= f.collection_check_boxes(:keyword_ids, Keyword.all, :id, :name) do |b| %>
+      <div class="row">
+        <%= b.label(class: "check_box") do %>
+          <div class="col-xs-4">
+            <%= b.check_box(class: "check_box") %>
+          </div>
+
+          <div class="col-xs-8">
+            <%= b.object.name %>
+          </div>       
+        <% end %>
+      </div>
+<% end %>
+
     <p>
       <% if @resource.new_record? %>
         <%= f.submit "Create", class: "btn btn-success btn-sm" %> <span><%= link_to "Cancel", resources_path %></span>

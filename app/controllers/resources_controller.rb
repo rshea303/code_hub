@@ -3,9 +3,9 @@ class ResourcesController < ApplicationController
   before_action :require_admin, only: [:edit, :update, :destroy]
 
   def index
-    if params[:keyword]
-      keyword = Keyword.find_by(name: params[:keyword])
-      @resources = keyword.resources   
+    if (params[:keyword] && Keyword.pluck(:id).include?(params[:keyword][:keyword_id].to_i))
+      keyword = Keyword.find(params[:keyword][:keyword_id])
+      @resources = keyword.resources
     else
       @resources = Resource.all
     end
@@ -34,6 +34,7 @@ class ResourcesController < ApplicationController
 
   def new
     @resource = Resource.new
+    @keywords = Keyword.all
   end
 
   def create

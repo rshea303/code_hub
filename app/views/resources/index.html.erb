@@ -1,11 +1,14 @@
 <div class="col-xs-3">
 <h3>Keyword Search</h3>
-<form class="filter_form", method="get">
-  <% Keyword.all.each do |k| %>
-    <span class="cbt"><%= check_box_tag("keyword", k.name) %></span> <span class="cbt"><%= k.name %></span><br>
-  <% end %>
-  <input type="submit" value="Filter" />
-</form>
+
+<div class="filter_options_container">
+
+  <form class="filter_form">
+    <%= select("keyword", "keyword_id", Keyword.all.map {|k| [k.name, k.id] }) %>
+    <input type="submit" value="Filter" />
+  </form>
+</div>
+
 </div>
 
 <div class="col-xs-9">
