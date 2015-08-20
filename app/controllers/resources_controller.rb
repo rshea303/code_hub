@@ -6,8 +6,10 @@ class ResourcesController < ApplicationController
     if (params[:keyword] && Keyword.pluck(:id).include?(params[:keyword][:keyword_id].to_i))
       keyword = Keyword.find(params[:keyword][:keyword_id])
       @resources = keyword.resources
+      @filter = keyword.name
     else
       @resources = Resource.all
+      @filter = "All"
     end
   end
 
