@@ -3,7 +3,12 @@ class ResourcesController < ApplicationController
   before_action :require_admin, only: [:edit, :update, :destroy]
 
   def index
-    @resources = Resource.all
+    if params[:keyword]
+      keyword = Keyword.find_by(name: params[:keyword])
+      @resources = keyword.resources   
+    else
+      @resources = Resource.all
+    end
   end
 
   def show

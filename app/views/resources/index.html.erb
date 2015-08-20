@@ -1,3 +1,14 @@
+<div class="col-xs-3">
+<h3>Keyword Search</h3>
+<form class="filter_form", method="get">
+  <% Keyword.all.each do |k| %>
+    <span class="cbt"><%= check_box_tag("keyword", k.name) %></span> <span class="cbt"><%= k.name %></span><br>
+  <% end %>
+  <input type="submit" value="Filter" />
+</form>
+</div>
+
+<div class="col-xs-9">
 <table class="table table-striped resources">
   <thead>
     <tr> 
@@ -18,3 +29,4 @@
   </tbody>
 <% end %>
 </table>
+</div>
