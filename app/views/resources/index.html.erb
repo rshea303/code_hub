@@ -2,7 +2,7 @@
 <h3>Keyword Search</h3>
   <div class="filter_options_container">
     <form class="filter_form">
-      <%= select("keyword", "keyword_id", Keyword.all.map {|k| [k.name, k.id] }) %>
+      <%= select("keyword", "keyword_id", Keyword.order_by_name.map {|k| [k.name, k.id] }) %>
       <input type="submit" value="Filter" />
     </form>
   </div>
