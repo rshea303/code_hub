@@ -32,6 +32,8 @@
 </ul>
 <% end %>
 
-<%= link_to "Write a review", new_resource_review_path(@resource) %> |
+<% unless @previous_review %>
+  <%= link_to "Write a review", new_resource_review_path(@resource) %> |
+<% end %>
 <%= link_to "See All Reviews", resource_reviews_path(@resource) %>
 

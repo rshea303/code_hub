@@ -20,6 +20,7 @@ class ResourcesController < ApplicationController
 
     if current_user
       @current_favorite = current_user.favorites.find_by(resource_id: @resource.id)
+      @previous_review = current_user.reviews.find_by(resource_id: @resource.id)
     end
   end
 
