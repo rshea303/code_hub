@@ -31,8 +31,7 @@
     <% @reviews.each do |review| %>
     <li>
       <%= link_to review.resource.name, resource_path(review.resource) %>
-      (rating: <%= review.rating %>)
-      "<%= review.comment %>"
+      (rating: <%= review.rating %>) <q><%= review.comment %></q> (written on <%= format_date(review) %>)
     </li>
     <% end %> 
   </ul>
