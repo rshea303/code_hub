@@ -1,18 +1,16 @@
 <h3>Review for: <%= @resource.name %></h3>
 
-<form role="form">
 <%= form_for([@resource, @review]) do |f| %>
   <%= render 'shared/errors', object: @review %>
-  <div class="form-group">
+  <div class="review-form">
     <%= f.label :comment %>
     <%= f.text_area :comment, autofocus: true, cols: 40, rows: 5, class: "form-control" %>
   </div>
-  <div class="form-group">
+  <div class="review-form">
     <%= f.label :rating %>
     <%= f.number_field :rating, class: "form-control" %>
   </div>
-  <div class="form-group">
+  <div class="review-form">
     <%= f.submit "Post Review", class: "btn btn-success btn-sm" %> <span><%= link_to "Cancel", resource_reviews_path(@resource) %></span>
   </div>
 <% end %>
-</form>
