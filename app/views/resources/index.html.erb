@@ -1,5 +1,5 @@
 <div class="col-xs-3">
-<h3>Keyword Search</h3>
+<h3 class="keyword-search">Keyword Search</h3>
   <div class="filter_options_container">
     <form class="filter_form">
       <%= select("keyword", "keyword_id", Keyword.order_by_name.map {|k| [k.name, k.id] }) %>
