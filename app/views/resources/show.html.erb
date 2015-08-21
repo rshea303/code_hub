@@ -1,22 +1,27 @@
 <h3><%= @resource.name %></h3>
-<div class="visit-site">
-<%= link_to "Visit Site", @resource.link, :target => "_blank", class: "btn btn-primary btn-sm" %>
-</div>
 
-<div class="favorite-status">
-<% if current_user %>
-  <% if @current_favorite %>
-    <%= button_to "Remove from favorites", resource_favorite_path(@resource, @current_favorite), method: :delete, class: "btn btn-danger btn-sm" %></h1>
-  <% else %>
-    <%= button_to "Add to favorites!", resource_favorites_path(@resource), class: "btn btn-success btn-sm" %>
-  <% end %>
-<% end %>
-</div>
-
+<div class="resource-admin">
 <% if current_user_admin? %>
   <%= link_to "Edit", edit_resource_path(@resource) %> | 
   <%= link_to "Delete", resource_path(@resource), method: :delete %>
 <% end %>
+</div>
+
+<div class="row">
+  <div class="visit-site">
+    <%= link_to "Visit Site", @resource.link, :target => "_blank", class: "btn btn-primary btn-sm" %>
+  </div>
+
+  <div class="favorite-status">
+  <% if current_user && !current_user_admin? %>
+    <% if @current_favorite %>
+      <%= button_to "Remove from favorites", resource_favorite_path(@resource, @current_favorite), method: :delete, class: "btn btn-danger btn-sm" %>
+    <% else %>
+      <%= button_to "Add to favorites!", resource_favorites_path(@resource), class: "btn btn-success btn-sm" %>
+    <% end %>
+  <% end %>
+  </div>
+</div>
 
 <h3>Description</h3>
 <p>

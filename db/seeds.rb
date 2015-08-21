@@ -40,5 +40,10 @@ def generate_keywords
   puts "keywords complete."
 end
 
+def generate_admin
+  User.create!(name: "admin", email: "admin@example.com", password: "password", password_confirmation: "password", admin: true)
+end
+
 generate_resources
 generate_keywords
+generate_admin
