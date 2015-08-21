@@ -8,16 +8,22 @@
 .flash-notice {
   background-color: green;
   text-align: center;
-  height: 20px;
+  height: 30px;
+  font-size: 20px;
 }
 
 .flash-alert {
   background-color: red;
   text-align: center;
-  height: 20px;
+  height: 30px;
+  font-size: 20px;
 }
 
 /* navbar */
 ul.nav a:hover { 
   background-color: #9DC4D1 !important; 
+}
+
+nav.navbar-default{
+  margin-bottom: 0px;
 }
