@@ -1,0 +1,11 @@
+<div class="keyword-form">
+  <%= form_for @keyword do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name, autofocus: true, size: 25 %>
+    <% if @keyword.new_record? %>
+      <%= f.submit "Create", class: "btn btn-success btn-sm" %> <%= link_to "Cancel", keywords_path %>
+    <% else %>
+      <%= f.submit "Update", class: "btn btn-success btn-sm" %> <%= link_to "Cancel", keywords_path %>
+    <% end %>
+  <% end %>
+</div>

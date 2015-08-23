@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resource :session
   resources :users
+  resources :keywords
 
   resources :resources do 
     resources :reviews
