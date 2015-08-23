@@ -7,7 +7,7 @@
 <ul class="keyword-list">
 <% @keywords.each do |keyword| %>
   <li>
-  <h4><%= keyword.name %> <%= link_to "Edit", edit_keyword_path(keyword), class: "btn btn-primary btn-sm" %></h4>
+  <h4><%= keyword.name %> <%= link_to "Edit", edit_keyword_path(keyword), class: "btn btn-primary btn-sm" %> <%= link_to "Delete", keyword_path(keyword), method: :delete, class: "btn btn-danger btn-sm" %></h4>
   </li>
 <% end %>
 </ul>
