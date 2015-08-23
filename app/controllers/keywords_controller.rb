@@ -1,4 +1,7 @@
 class KeywordsController < ApplicationController
+  before_action :require_sign_in
+  before_action :require_admin
+
   def index
     @keyword = Keyword.new
     @keywords = Keyword.order_by_name
