@@ -1,6 +1,7 @@
 class KeywordsController < ApplicationController
   def index
-    @keywords = Keyword.all
+    @keyword = Keyword.new
+    @keywords = Keyword.order_by_name
   end
   
   def new
