@@ -4,12 +4,23 @@
   <%= link_to "Create New Keyword", new_keyword_path, class: "btn btn-success btn-sm" %>
 </div>
 
-<ul class="keyword-list">
-<% @keywords.each do |keyword| %>
-  <li>
-  <h4><%= keyword.name %> <%= link_to "Edit", edit_keyword_path(keyword), class: "btn btn-primary btn-sm" %> <%= link_to "Delete", keyword_path(keyword), method: :delete, class: "btn btn-danger btn-sm" %></h4>
-  </li>
-<% end %>
-</ul>
+<table class="table table-striped keyword-list">
+  <thead>
+    <tr>
+      <th width="12%"></th>
+      <th width="12%"></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @keywords.each do |keyword| %>
+      <tr>
+        <td><%= keyword.name %></td>
+        <td><%= link_to "Edit", edit_keyword_path(keyword), class: "btn btn-primary btn-sm" %></td>
+        <td><%= link_to "Delete", keyword_path(keyword), method: :delete, class: "btn btn-danger btn-sm" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 
