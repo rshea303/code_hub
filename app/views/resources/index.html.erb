@@ -21,7 +21,7 @@
   </thead>
   <tbody>
   <% @resources.each do |resource| %>
-    <tr>
+    <tr class="resource-rows">
       <td><%= link_to "Visit Site", resource.link, :target => "_blank", class: "btn btn-primary btn-sm" %></td>
       <td><%= link_to resource.name, resource_path(resource) %></td>
       <td><%= resource.description %></td>
