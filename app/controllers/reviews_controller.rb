@@ -16,7 +16,7 @@ class ReviewsController < ApplicationController
     @review = @resource.reviews.new(review_params)
     @review.user = current_user
     if @review.save
-      redirect_to resource_reviews_path(@resource), notice: "Thanks for your review!"
+      redirect_to resource_path(@resource), notice: "Thanks for your review!"
     else
       render :new
     end

@@ -21,7 +21,7 @@ describe "Creating a new review" do
 
     click_button('Post Review')
 
-    expect(current_path).to eq(resource_reviews_path(resource))
+    expect(current_path).to eq(resource_path(resource))
     expect(page).to have_text("Thanks for your review!")
     expect(page).to have_text("Best resource in the world for Ruby")
     expect(page).to have_text(@user.name)

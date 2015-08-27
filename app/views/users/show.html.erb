@@ -35,15 +35,28 @@
 </div>
 
 <h3>My Reviews:</h3>
+
 <% if @reviews.any? %>
-  <ul>
-    <% @reviews.each do |review| %>
-    <li>
-      <%= link_to review.resource.name, resource_path(review.resource) %>
-      (rating: <%= review.rating %>) <q><%= review.comment %></q> (written on <%= format_date(review) %>)
-    </li>
-    <% end %> 
-  </ul>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Resource</th>
+        <th>Rating</th>
+        <th>Comment</th>
+        <th>Date Written</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @reviews.each do |review| %>
+        <tr>
+          <td><%= link_to review.resource.name, resource_path(review.resource.id) %></td>
+          <td><%= pluralize(review.rating, 'star') %></td>
+          <td><q><%= review.comment %></q></td>
+          <td><%= format_date(review) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 <% else %>
   <h4>You have not reviewed any resources yet.</h4>
 <% end %>
