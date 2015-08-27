@@ -1,16 +1,32 @@
-<h3>Reviews for: <%= link_to @resource.name, resource_path(@resource) %></h3>
+<h3>Reviews</h3>
+
+<% unless @previous_review %>
+  <%= link_to "write a review", new_resource_review_path(@resource), class: "btn btn-success btn-sm" %>
+<% end %>
 
 <% if @reviews.any? %>
-  <ol class="reviews">
+<table class="table">
+  <thead>
+    <tr>
+      <th>Rating</th>
+      <th>User</th>
+      <th>Comment</th>
+      <th>Date Written</th>
+    </tr>
+  </thead>
+  <tbody>
     <% @reviews.each do |review| %>
-      <li>
-        <p>
-        <%= pluralize(review.rating, 'star') %> by <%= link_to review.user.name, user_path(review.user) %>, <q><%= review.comment %></q> (written on <%= format_date(review) %>)
-        </p>
-      </li><br>
+      <tr>
+        <td><%= pluralize(review.rating, 'star') %></td>
+        <td><%= link_to review.user.name, user_path(review.user) %></td>
+        <td><q><%= review.comment %></q></td>
+        <td>(written on <%= format_date(review) %>)</td>
+      </tr>
     <% end %>
-  </ol>
+  </tbody>
+</table>
+
 <% else %>
   <h4>There are no reviews for this resource</h4>
-  <h4>You can be the first to <%= link_to "write a review", new_resource_review_path(@resource) %> for this resource!</h4>
 <% end %>
+

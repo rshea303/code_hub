@@ -1,44 +1,44 @@
-<h3><%= @resource.name %></h3>
+<div class="col-xs-6">
+  <h3><%= @resource.name %></h3>
 
-<div class="resource-admin">
-<% if current_user_admin? %>
-  <%= link_to "Edit", edit_resource_path(@resource) %> | 
-  <%= link_to "Delete", resource_path(@resource), method: :delete %>
-<% end %>
-</div>
-
-<div class="row">
-  <div class="visit-site">
-    <%= link_to "Visit Site", @resource.link, :target => "_blank", class: "btn btn-primary btn-sm" %>
+  <div class="resource-admin">
+  <% if current_user_admin? %>
+    <%= link_to "Edit", edit_resource_path(@resource) %> | 
+    <%= link_to "Delete", resource_path(@resource), method: :delete %>
+  <% end %>
   </div>
 
-  <div class="favorite-status">
-  <% if current_user && !current_user_admin? %>
-    <% if @current_favorite %>
-      <%= button_to "Remove from favorites", resource_favorite_path(@resource, @current_favorite), method: :delete, class: "btn btn-danger btn-sm" %>
-    <% else %>
-      <%= button_to "Add to favorites!", resource_favorites_path(@resource), class: "btn btn-success btn-sm" %>
+  <div class="row">
+    <div class="visit-site">
+      <%= link_to "Visit Site", @resource.link, :target => "_blank", class: "btn btn-primary btn-sm" %>
+    </div>
+
+    <div class="favorite-status">
+    <% if current_user && !current_user_admin? %>
+      <% if @current_favorite %>
+        <%= button_to "Remove from favorites", resource_favorite_path(@resource, @current_favorite), method: :delete, class: "btn btn-danger btn-sm" %>
+      <% else %>
+        <%= button_to "Add to favorites!", resource_favorites_path(@resource), class: "btn btn-success btn-sm" %>
+      <% end %>
     <% end %>
-  <% end %>
+    </div>
   </div>
+
+  <h3>Description</h3>
+  <p>
+    <%= @resource.description %>
+  </p>
+
+  <% if @keywords.any? %>
+  <h3>Keywords:</h3>
+    <ul>
+    <% @keywords.each do |keyword| %>
+      <li><%= keyword.name %></li>
+    <% end %>
+  </ul>
+  <% end %>
 </div>
 
-<h3>Description</h3>
-<p>
-  <%= @resource.description %>
-</p>
-
-<% if @keywords.any? %>
-<h3>Keywords:</h3>
-  <ul>
-  <% @keywords.each do |keyword| %>
-    <li><%= keyword.name %></li>
-  <% end %>
-</ul>
-<% end %>
-
-<% unless @previous_review %>
-  <%= link_to "Write a review", new_resource_review_path(@resource) %> |
-<% end %>
-<%= link_to "See All Reviews", resource_reviews_path(@resource) %>
-
+<div class="col-xs-6">
+  <%= render :template => 'reviews/index' %>
+</div>

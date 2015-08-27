@@ -12,7 +12,7 @@ describe "Creating a new review" do
     resource = Resource.create(resource_attributes)
 
     visit resource_path(resource)
-    click_on("Write a review")
+    click_on("write a review")
 
     expect(current_path).to eq(new_resource_review_path(resource))
     
