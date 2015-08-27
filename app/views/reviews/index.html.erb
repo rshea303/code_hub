@@ -20,7 +20,7 @@
         <td><%= pluralize(review.rating, 'star') %></td>
         <td><%= link_to review.user.name, user_path(review.user) %></td>
         <td><q><%= review.comment %></q></td>
-        <td>(written on <%= format_date(review) %>)</td>
+        <td><%= format_date(review) %></td>
       </tr>
     <% end %>
   </tbody>
